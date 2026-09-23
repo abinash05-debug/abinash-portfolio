@@ -23,7 +23,7 @@ function Resume() {
             Download Resume
           </a>
           <p className="resume-note">
-            Place your actual resume PDF in public/resume.pdf before sharing this portfolio.
+            Click above to download my resume. 
           </p>
         </motion.div>
       </div>

@@ -2,9 +2,9 @@ import { motion } from 'framer-motion'
 import { Email, GitHub, LinkedIn, ArrowForward } from '@mui/icons-material'
 
 const socialLinks = [
-  { label: 'GitHub', href: 'https://github.com/', icon: GitHub },
-  { label: 'LinkedIn', href: 'https://linkedin.com/', icon: LinkedIn },
-  { label: 'Email', href: 'mailto:YOUR_EMAIL_HERE', icon: Email },
+  { label: 'GitHub', href: 'https://github.com/abinash05-debug', icon: GitHub },
+  { label: 'LinkedIn', href: 'https://www.linkedin.com/in/abinash-mohanty-845759344', icon: LinkedIn },
+  { label: 'Email', href: 'https://abinash-mohanty.netlify.app/#contact', icon: Email },
 ]
 
 function Hero() {

@@ -22,6 +22,7 @@ function Navbar() {
   const [scrolled, setScrolled] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
   const [activeSection, setActiveSection] = useState('home')
+  const [profileImageAvailable, setProfileImageAvailable] = useState(true)
 
   useEffect(() => {
     const handleScroll = () => {
@@ -65,7 +66,18 @@ function Navbar() {
     <header className={`topbar ${scrolled ? 'scrolled' : ''}`}>
       <nav className="container nav-shell" aria-label="Main navigation">
         <a href="#home" className="brand-mark" aria-label="Abinash home section">
-          ABINASH
+          <span className="nav-profile-image">
+            {profileImageAvailable ? (
+              <img
+                src="/profile.jpg"
+                alt=""
+                onError={() => setProfileImageAvailable(false)}
+              />
+            ) : (
+              <span>AM</span>
+            )}
+          </span>
+          <span>ABINASH</span>
         </a>
 
         <div className="nav-links desktop-nav" aria-label="Desktop navigation">

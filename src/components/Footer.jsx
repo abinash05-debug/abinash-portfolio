@@ -4,8 +4,8 @@ function Footer() {
   return (
     <footer className="site-footer">
       <div className="container footer-inner">
-        <p>© 2026 Abinash Mohanty</p>
-        <p>Built with React</p>
+        <p>© 2026 Abinash Mohanty. All rights reserved.</p>
+        <p>Full Stack Developer</p>
         <div className="footer-links">
           <a href="https://github.com/" target="_blank" rel="noreferrer" aria-label="GitHub">
             <GitHub fontSize="small" />

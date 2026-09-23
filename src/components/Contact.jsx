@@ -3,9 +3,9 @@ import { motion } from 'framer-motion'
 import { Email, GitHub, LinkedIn } from '@mui/icons-material'
 
 const contactDetails = [
-  { label: 'Email', value: 'YOUR_EMAIL_HERE', href: 'mailto:YOUR_EMAIL_HERE', icon: Email },
-  { label: 'GitHub', value: 'YOUR_GITHUB_URL', href: 'https://github.com/', icon: GitHub },
-  { label: 'LinkedIn', value: 'YOUR_LINKEDIN_URL', href: 'https://linkedin.com/', icon: LinkedIn },
+  { label: 'Email', value: 'abinashmmohanty@gmail.com', href: 'mailto:abinashmmohanty@gmail.com', icon: Email },
+  { label: 'GitHub', value: 'abinash05-debug', href: 'https://github.com/abinash05-debug', icon: GitHub },
+  { label: 'LinkedIn', value: 'Abinash Mohanty', href: 'https://www.linkedin.com/in/abinash-mohanty-845759344', icon: LinkedIn },
 ]
 
 function Contact() {
