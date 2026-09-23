@@ -17,7 +17,7 @@ function Contact() {
     setForm((current) => ({ ...current, [name]: value }))
   }
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault()
 
     const { name, email, message } = form
@@ -26,8 +26,30 @@ function Contact() {
       return
     }
 
-    setStatus('Form validated successfully. Connect a backend or email service to send messages.')
-    setForm({ name: '', email: '', message: '' })
+    setStatus('Sending your message...')
+
+    const formData = new URLSearchParams()
+    formData.append('form-name', 'contact')
+    formData.append('name', name.trim())
+    formData.append('email', email.trim())
+    formData.append('message', message.trim())
+
+    try {
+      const response = await fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: formData.toString(),
+      })
+
+      if (!response.ok) {
+        throw new Error('Netlify form submission failed')
+      }
+
+      setStatus('Message sent successfully. Thank you for reaching out!')
+      setForm({ name: '', email: '', message: '' })
+    } catch {
+      setStatus('Your message could not be sent. Please try again or email me directly.')
+    }
   }
 
   return (
@@ -56,6 +78,10 @@ function Contact() {
         </motion.div>
 
         <motion.form
+          name="contact"
+          method="POST"
+          data-netlify="true"
+          netlify-honeypot="bot-field"
           className="contact-form"
           initial={{ opacity: 0, x: 20 }}
           whileInView={{ opacity: 1, x: 0 }}
@@ -63,6 +89,12 @@ function Contact() {
           transition={{ duration: 0.5 }}
           onSubmit={handleSubmit}
         >
+          <input type="hidden" name="form-name" value="contact" />
+          <div className="hidden-field" aria-hidden="true">
+            <label htmlFor="bot-field">Don&apos;t fill this out</label>
+            <input id="bot-field" name="bot-field" tabIndex="-1" autoComplete="off" />
+          </div>
+
           <div className="form-group">
             <label htmlFor="name">Name</label>
             <input id="name" name="name" type="text" value={form.name} onChange={handleChange} />
@@ -82,7 +114,11 @@ function Contact() {
             Send Message
           </button>
 
-          {status && <p className="form-status">{status}</p>}
+          {status && (
+            <p className="form-status" role="status" aria-live="polite">
+              {status}
+            </p>
+          )}
         </motion.form>
       </div>
     </section>

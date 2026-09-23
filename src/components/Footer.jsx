@@ -7,13 +7,13 @@ function Footer() {
         <p>© 2026 Abinash Mohanty. All rights reserved.</p>
         <p>Full Stack Developer</p>
         <div className="footer-links">
-          <a href="https://github.com/" target="_blank" rel="noreferrer" aria-label="GitHub">
+          <a href="https://github.com/abinash05-debug'" target="_blank" rel="noreferrer" aria-label="GitHub">
             <GitHub fontSize="small" />
           </a>
-          <a href="https://linkedin.com/" target="_blank" rel="noreferrer" aria-label="LinkedIn">
+          <a href="https://www.linkedin.com/in/abinash-mohanty-845759344" target="_blank" rel="noreferrer" aria-label="LinkedIn">
             <LinkedIn fontSize="small" />
           </a>
-          <a href="mailto:YOUR_EMAIL_HERE" aria-label="Email">
+          <a href="mailto:abinashmmohanty@gmail.com" aria-label="Email">
             <Email fontSize="small" />
           </a>
         </div>

@@ -3,6 +3,11 @@
   margin: 0 auto;
 }
 
+html,
+body {
+  overflow-x: hidden;
+}
+
 section {
   scroll-margin-top: 80px;
 }
@@ -195,6 +200,14 @@ section {
   gap: 2.5rem;
 }
 
+.hero-grid > *,
+.about-grid > *,
+.contact-grid > *,
+.skills-grid > *,
+.projects-grid > * {
+  min-width: 0;
+}
+
 .hero-copy {
   max-width: 640px;
 }
@@ -283,6 +296,7 @@ section {
   justify-content: center;
   align-items: center;
   min-height: 500px;
+  min-width: 0;
 }
 
 .visual-glow {
@@ -501,6 +515,7 @@ section {
 .project-card h3 {
   margin: 1rem 0 0.8rem;
   font-size: 1.7rem;
+  overflow-wrap: anywhere;
 }
 
 .tech-list {
@@ -714,6 +729,18 @@ section {
   margin-bottom: 1rem;
 }
 
+.hidden-field {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
 .form-group label {
   color: #e2e8f0;
   font-weight: 600;
@@ -730,6 +757,14 @@ section {
   color: #f8fafc;
   resize: vertical;
   font: inherit;
+}
+
+.form-group input,
+.form-group textarea,
+.primary-button,
+.secondary-button,
+.social-pill {
+  min-height: 44px;
 }
 
 .form-group input:focus,
@@ -835,7 +870,70 @@ section {
   }
 
   .hero-copy h1 {
-    font-size: 2.6rem;
+    font-size: clamp(2.3rem, 12vw, 3.2rem);
+    letter-spacing: -0.06em;
+  }
+
+  .hero-section,
+  .section-wrap {
+    padding: 3.25rem 0;
+  }
+
+  .hero-visual {
+    min-height: 350px;
+  }
+
+  .visual-window {
+    border-radius: 20px;
+    padding: 0.75rem;
+  }
+
+  .window-body,
+  .about-copy,
+  .skill-card,
+  .project-card,
+  .contact-form {
+    padding: 1rem;
+  }
+
+  .row-cards,
+  .stat-panel,
+  .stats-panel {
+    gap: 0.6rem;
+  }
+
+  .code-card {
+    padding: 0.8rem;
+  }
+
+  .code-card small,
+  .stat-panel span {
+    font-size: 0.76rem;
+  }
+
+  .section-heading h2,
+  .resume-card h2,
+  .contact-details h2 {
+    font-size: clamp(1.8rem, 9vw, 2.4rem);
+  }
+
+  .timeline-card {
+    gap: 0.85rem;
+    padding: 1.25rem 1rem;
+  }
+
+  .timeline-content h3,
+  .qualification-primary {
+    font-size: 1.3rem;
+  }
+
+  .contact-item {
+    padding: 0.85rem;
+  }
+
+  .contact-item small {
+    font-size: 0.84rem;
+    overflow-wrap: anywhere;
   }
 
   .brand-mark {
