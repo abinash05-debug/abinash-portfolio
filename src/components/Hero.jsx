@@ -4,7 +4,11 @@ import { Email, GitHub, LinkedIn, ArrowForward } from '@mui/icons-material'
 const socialLinks = [
   { label: 'GitHub', href: 'https://github.com/abinash05-debug', icon: GitHub },
   { label: 'LinkedIn', href: 'https://www.linkedin.com/in/abinash-mohanty-845759344', icon: LinkedIn },
-  { label: 'Email', href: 'mailto:abinashmmohanty@gmail.com', icon: Email },
+  {
+    label: 'Email',
+    href: 'mailto:abinashmmohanty@gmail.com?subject=Portfolio%20Inquiry',
+    icon: Email,
+  },
 ]
 
 function Hero() {

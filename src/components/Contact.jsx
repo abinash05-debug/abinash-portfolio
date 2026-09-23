@@ -3,7 +3,12 @@ import { motion } from 'framer-motion'
 import { Email, GitHub, LinkedIn } from '@mui/icons-material'
 
 const contactDetails = [
-  { label: 'Email', value: 'abinashmmohanty@gmail.com', href: 'mailto:abinashmmohanty@gmail.com', icon: Email },
+  {
+    label: 'Email',
+    value: 'abinashmmohanty@gmail.com',
+    href: 'mailto:abinashmmohanty@gmail.com?subject=Portfolio%20Inquiry',
+    icon: Email,
+  },
   { label: 'GitHub', value: 'abinash05-debug', href: 'https://github.com/abinash05-debug', icon: GitHub },
   { label: 'LinkedIn', value: 'Abinash Mohanty', href: 'https://www.linkedin.com/in/abinash-mohanty-845759344', icon: LinkedIn },
 ]
