@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { Email, GitHub, LinkedIn } from '@mui/icons-material'
+import emailjs from '@emailjs/browser'
 
 const contactDetails = [
   {
@@ -31,28 +32,36 @@ function Contact() {
       return
     }
 
+    const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID
+    const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID
+    const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+    const recipient = 'abinashmmohanty@gmail.com'
+
+    if (!serviceId || !templateId || !publicKey) {
+      setStatus('The contact form is not configured yet. Please email me directly.')
+      return
+    }
+
     setStatus('Sending your message...')
 
-    const formData = new URLSearchParams()
-    formData.append('form-name', 'contact')
-    formData.append('name', name.trim())
-    formData.append('email', email.trim())
-    formData.append('message', message.trim())
-
     try {
-      const response = await fetch('/', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: formData.toString(),
-      })
-
-      if (!response.ok) {
-        throw new Error('Netlify form submission failed')
-      }
+      await emailjs.send(
+        serviceId,
+        templateId,
+        {
+          to_email: recipient,
+          from_name: name.trim(),
+          from_email: email.trim(),
+          reply_to: email.trim(),
+          message: message.trim(),
+        },
+        { publicKey },
+      )
 
       setStatus('Message sent successfully. Thank you for reaching out!')
       setForm({ name: '', email: '', message: '' })
-    } catch {
+    } catch (error) {
+      console.error('EmailJS form submission failed', error)
       setStatus('Your message could not be sent. Please try again or email me directly.')
     }
   }
@@ -83,10 +92,6 @@ function Contact() {
         </motion.div>
 
         <motion.form
-          name="contact"
-          method="POST"
-          data-netlify="true"
-          netlify-honeypot="bot-field"
           className="contact-form"
           initial={{ opacity: 0, x: 20 }}
           whileInView={{ opacity: 1, x: 0 }}
@@ -94,12 +99,6 @@ function Contact() {
           transition={{ duration: 0.5 }}
           onSubmit={handleSubmit}
         >
-          <input type="hidden" name="form-name" value="contact" />
-          <div className="hidden-field" aria-hidden="true">
-            <label htmlFor="bot-field">Don&apos;t fill this out</label>
-            <input id="bot-field" name="bot-field" tabIndex="-1" autoComplete="off" />
-          </div>
-
           <div className="form-group">
             <label htmlFor="name">Name</label>
             <input id="name" name="name" type="text" value={form.name} onChange={handleChange} />
