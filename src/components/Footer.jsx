@@ -13,7 +13,7 @@ function Footer() {
           <a href="https://www.linkedin.com/in/abinash-mohanty-845759344" target="_blank" rel="noreferrer" aria-label="LinkedIn">
             <LinkedIn fontSize="small" />
           </a>
-          <a href="mailto:abinashmmohanty@gmail.com?subject=Portfolio%20Inquiry" aria-label="Email">
+          <a href="https://mail.google.com/mail/?view=cm&fs=1&to=abinashmmohanty@gmail.com&su=Portfolio%20Inquiry" target="_blank" rel="noreferrer" aria-label="Email">
             <Email fontSize="small" />
           </a>
         </div>

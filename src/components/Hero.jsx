@@ -6,7 +6,7 @@ const socialLinks = [
   { label: 'LinkedIn', href: 'https://www.linkedin.com/in/abinash-mohanty-845759344', icon: LinkedIn },
   {
     label: 'Email',
-    href: 'mailto:abinashmmohanty@gmail.com?subject=Portfolio%20Inquiry',
+    href: 'https://mail.google.com/mail/?view=cm&fs=1&to=abinashmmohanty@gmail.com&su=Portfolio%20Inquiry',
     icon: Email,
   },
 ]
@@ -44,8 +44,8 @@ function Hero() {
               <a
                 key={label}
                 href={href}
-                target={label === 'Email' ? undefined : '_blank'}
-                rel={label === 'Email' ? undefined : 'noreferrer'}
+                target="_blank"
+                rel="noreferrer"
                 className="social-pill"
                 aria-label={label}
               >

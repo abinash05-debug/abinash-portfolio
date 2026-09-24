@@ -7,7 +7,7 @@ const contactDetails = [
   {
     label: 'Email',
     value: 'abinashmmohanty@gmail.com',
-    href: 'mailto:abinashmmohanty@gmail.com?subject=Portfolio%20Inquiry',
+    href: 'https://mail.google.com/mail/?view=cm&fs=1&to=abinashmmohanty@gmail.com&su=Portfolio%20Inquiry',
     icon: Email,
   },
   { label: 'GitHub', value: 'abinash05-debug', href: 'https://github.com/abinash05-debug', icon: GitHub },
@@ -80,7 +80,7 @@ function Contact() {
           <h2>Let&apos;s connect.</h2>
           <div className="contact-list">
             {contactDetails.map(({ label, value, href, icon: Icon }) => (
-              <a key={label} href={href} className="contact-item" target={label === 'Email' ? undefined : '_blank'} rel={label === 'Email' ? undefined : 'noreferrer'}>
+              <a key={label} href={href} className="contact-item" target="_blank" rel="noreferrer">
                 <span className="contact-icon"><Icon fontSize="small" /></span>
                 <div>
                   <strong>{label}</strong>
